@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Doggy Viewer</title>
-    <link rel="stylesheet" href="css/app.css">
+    <!-- desktop screen size css -->
+    <link rel="stylesheet" media="screen" href="static/css/desktop.css" type="text/css" />
+    <!-- mobile screen size css -->
+    <link rel="stylesheet" media="handheld" href="static/css/mobile.css" type="text/css" />
 </head>
 
 <body>
@@ -13,12 +16,19 @@
         <p class="head-subtitle">Your favorite dog image viewer</p>
     </div>
     <div id="options">
+        <!-- User should be able to select one OR MORE dog breeds
+        -->
+        <input type="text" id="breed-search" placeholder="Search for a breed">
+        <select name="breed-select">
+            
+        </select>
         
+        <!-- Once a breed is selected, only dogs of that breed is shown -->
     </div>
     <div id="viewer">
         
     </div>
-    <script src="js/app.js"></script>
+    <script src="static/js/app.js"></script>
 </body>
 
 </html>
