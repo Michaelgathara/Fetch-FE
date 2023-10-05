@@ -79,7 +79,7 @@ function filterBreeds() {
     });
 }
 
-// Fetch the initial list of dog breeds
+// Fetch the initial list of dog breeds on javascript load in browser
 getDogBreeds();
 
 // Add event listener to the search input for filtering breeds
