@@ -27,11 +27,10 @@ async function getDogBreeds() {
     }
 }
 
-
 /**
  * @description Fetches a random image of the selected breed from the Dog API and displays it in the viewer. Updates the view everytime a breed is selected or unselected.
  * 
- * @param {*} event -> The event object, in this case the change event that is triggered when a checkbox is checked or unchecked.
+ * @param {Event} event - The event object, in this case is triggered when a checkbox is checked or unchecked.
  */
 async function getDogImage(event) {
     const breed = event.target.value;
@@ -40,7 +39,7 @@ async function getDogImage(event) {
     if (event.target.checked) {
         let url = `https://dog.ceo/api/breed/${breed}/images/random`;
         let response = await fetch(url);
-        console.log(response.status)
+
         if (response.status === 404) {
             // If the URL returns a 404, try fetching another image to make the customer happy
             response = await fetch(url);
@@ -59,5 +58,29 @@ async function getDogImage(event) {
     }
 }
 
+/**
+ * @description Filters the displayed dog breed checkboxes based on the user's search query.
+ */
+function filterBreeds() {
+    const query = document.getElementById('breed-search').value.toLowerCase();
+    const labels = document.querySelectorAll('#breed-checkboxes label');
 
+    labels.forEach(label => {
+        const text = label.textContent.toLowerCase();
+        const checkbox = document.getElementById(`breed-${text}`);
+
+        if (text.includes(query)) {
+            label.style.display = 'inline';
+            checkbox.style.display = 'inline';
+        } else {
+            label.style.display = 'none';
+            checkbox.style.display = 'none';
+        }
+    });
+}
+
+// Fetch the initial list of dog breeds
 getDogBreeds();
+
+// Add event listener to the search input for filtering breeds
+document.getElementById('breed-search').addEventListener('input', filterBreeds);
