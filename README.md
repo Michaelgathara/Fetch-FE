@@ -3,6 +3,7 @@
 ## How to locally run
 * Navigate to releases on the right of Github
 * Click releases and find the latest release
+* Download the first asset, `Michael-Gathara-Fetch-FE.zip`
 * Download the zip file
 * Extract the zip file
 * Navigate to `public/` and double click `index.html` to open it in your browser
