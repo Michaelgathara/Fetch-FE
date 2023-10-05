@@ -1,52 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Title and Desc -->
-    <title>Doggy Viewer</title>
-    <meta name="description" content="Your favorite dog image viewer">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- desktop screen size css -->
-    <link rel="stylesheet" type="text/css" href="static/css/desktop.css" media="screen and (min-width: 769px)">
-    
-    <!-- mobile screen size css -->
-    <link rel="stylesheet" type="text/css" href="static/css/mobile.css" media="screen and (max-width: 768px)">
+        <!-- Title and Desc -->
+        <title>Doggy Viewer</title>
+        <meta name="description" content="Your favorite dog image viewer">
 
-    <!-- Favicons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-    <link rel="manifest" href="favicons/site.webmanifest">
-    
-    <!-- Meta properties -->
-    <meta property="og:image" content="https://dogapi-michael.web.app/images/logo.png" />
-    <meta property="og:url" content="https://dogapi-michael.web.app/" />
-    <meta name="theme-color" content="#732385" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="#732385" />
+        <!-- desktop screen size css -->
+        <link rel="stylesheet" type="text/css" href="static/css/desktop.css" media="screen and (min-width: 769px)">
 
-</head>
+        <!-- mobile screen size css -->
+        <link rel="stylesheet" type="text/css" href="static/css/mobile.css" media="screen and (max-width: 768px)">
 
-<body>
-    <div class="containers">
-        <div id="options" class="options">
-            <h1 class="head-title">Doggy Viewer</h1>
-            <!-- User should be able to select one OR MORE dog breeds
-            -->
-            <input type="text" id="breed-search" class="breed-search" placeholder="Search for a breed">
-            <p class="breed-search-info">- or select one or more breeds to view images -</p>
-            <div id="breed-checkboxes" class="breed-checkboxes">
-                <!-- Dog breed checkboxes get added here through JS-->
+        <!-- Favicons-->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+        <link rel="manifest" href="favicons/site.webmanifest">
+
+        <!-- Meta properties -->
+        <meta property="og:image" content="https://dogapi-michael.web.app/images/logo.png" />
+        <meta property="og:url" content="https://dogapi-michael.web.app/" />
+        <meta name="theme-color" content="#732385" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#732385" />
+
+    </head>
+
+    <body>
+        <div class="containers">
+            <div id="options" class="options">
+                <h1 class="head-title">Doggy Viewer</h1>
+                <!-- User should be able to select one OR MORE dog breeds
+                -->
+                <input type="text" id="breed-search" class="breed-search" placeholder="Search for a breed">
+                <p class="breed-search-info">- or select one or more breeds to view images -</p>
+                <div id="breed-checkboxes" class="breed-checkboxes">
+                    <!-- Dog breed checkboxes get added here through JS-->
+                </div>
+            </div>
+            <div id="viewer" class="viewer">
+                <!-- <h1 class="head-title">Doggy Images</h1> -->
+                <!-- Images get added here through JS-->
             </div>
         </div>
-        <div id="viewer" class="viewer">
-            <h1 class="head-title">Doggy Images</h1>
-            <hr>
-            <!-- Images get added here through JS-->
-        </div>
-    </div>
-    <script src="static/js/app.js"></script>
-</body>
+        <script src="static/js/app.js"></script>
+    </body>
+
 </html>

@@ -3,123 +3,152 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap");
 
 :root {
-  --lightwhite: #f4fffd;
-  --fetchpurple: #732385;
-  --fetchyellow: #fba919;
-  --lightblue: #e9f1f7;
-  --black: #100007;
-  --selected: #026c7c;
+    --lightwhite: #f4fffd;
+    --fetchpurple: #732385;
+    --fetchyellow: #fba919;
+    --lightblue: #e9f1f7;
+    --black: #100007;
+    --selected: #026c7c;
 }
 
 body {
-  margin: 0 auto;
-  width: 100%;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  font-family: "Roboto", sans-serif;
+    margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: "Roboto", sans-serif;
 }
 
 .containers {
-  position: relative;
-  width: 100%;
-  height: 100%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .options {
-  width: 35%;
-  flex-grow: 1;
-  min-height: 100vh;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background-color: var(--fetchpurple);
-  text-align: center;
-  color: var(--lightwhite);
-  position: fixed;
-  overflow-y: scroll;
+    width: 35%;
+    flex-grow: 1;
+    min-height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--fetchpurple);
+    text-align: center;
+    color: var(--lightwhite);
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .breed-search {
-  width: 80%;
-  text-align: center;
-  border-radius: 12px;
-  border: 1px solid #000;
-  padding: 0.6%;
-  color: black;
-  margin-bottom: 0.5%;
+    width: 80%;
+    text-align: center;
+    border-radius: 12px;
+    border: 1px solid #000;
+    padding: 0.6%;
+    color: black;
+    margin-bottom: 0.5%;
 }
 
 .breed-search::placeholder {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 
 .breed-search-info {
-  color: yellow;
+    color: yellow;
 }
 
 .breed-checkboxes {
-  width: 90%;
-  margin: auto;
-  text-align: center;
-  border-radius: 12px;
-  padding: 5%;
-  color: black;
-  display: flex;
-  flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    border-radius: 12px;
+    padding: 5%;
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .breed-checkbox {
-  opacity: 0;
-  position: absolute;
-  width: 100%;
-  z-index: 1;
-  text-align: center;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
 }
 
 label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  z-index: 0;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    z-index: 0;
 }
 
-.breed-checkbox + label {
-  background-color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 1.1%;
-  margin: 1%;
+.breed-checkbox+label {
+    background-color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 1.1%;
+    margin: 1%;
 }
 
-.breed-checkbox:checked + label {
-  background-color: var(--fetchyellow);
-  border: none;
+.breed-checkbox:checked+label {
+    background-color: var(--fetchyellow);
+    border: none;
 }
 
 .viewer {
-  width: 65%;
-  min-height: 100vh;
-  position: absolute;
-  right: 0;
-  top: 0;
-  left: 35%;
-  display: flex;
-  flex-direction: row;
+    max-width: 65%;
+    min-height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 35%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .viewer .head-title {
-  color: var(--fetchpurple);
-  text-align: center;
+    color: var(--fetchpurple);
+    text-align: center;
 }
 
 hr {
-  width: 80%;
+    width: 80%;
 }
 
-.dog-container {
-  /* width: 300px; */
+.viewer .dog-container {
+    max-width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+    border: 2px solid grey;
+    border-radius: 12px;
+    padding: 1%;
+}
+
+.viewer img {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 12px;
+}
+
+.dog-title {
+    color: var(--fetchpurple);
+    text-align: center;
+    /* border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black; */
+    width: 100%;
+}
+
+/* .dog-container {
   height: 300px;
   border: 2px black solid;
-}
-
-
+} */
