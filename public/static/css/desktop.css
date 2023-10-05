@@ -55,6 +55,12 @@ body {
     outline: none;
 }
 
+.breed-search-info {
+    text-align: center;
+    margin: 0%;
+    font-size: 1em;
+}
+
 .breed-checkboxes {
     width: 100%;
     text-align: center;
@@ -86,7 +92,7 @@ label {
     border: 1px solid #ccc;
     border-radius: 12px;
     padding: 0.5%;
-    margin-top: 1%;
+    margin: 1%;
 }
 
 .breed-checkbox:checked + label{
