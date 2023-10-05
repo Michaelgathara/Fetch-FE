@@ -15,6 +15,7 @@ async function getDogBreeds() {
         checkbox.type = 'checkbox';
         checkbox.name = 'breed';
         checkbox.value = breed;
+        checkbox.className = 'breed-checkbox';
         checkbox.id = `breed-${breed}`;
         checkbox.addEventListener('change', getDogImage);
 

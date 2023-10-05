@@ -10,9 +10,9 @@
     <meta name="description" content="Your favorite dog image viewer">
 
     <!-- desktop screen size css -->
-    <link rel="stylesheet" media="screen" href="static/css/desktop.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/css/desktop.css" media="screen and (min-width: 769px)">
     <!-- mobile screen size css -->
-    <link rel="stylesheet" media="handheld" href="static/css/mobile.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="static/css/mobile.css" media="screen and (max-width: 768px)">
 
 </head>
 
@@ -21,15 +21,106 @@
         <h1 class="head-title">Doggy Viewer</h1>
         <p class="head-subtitle">Your favorite dog image viewer</p>
     </div>
-    <div id="options">
+    <div id="options" class="options">
         <!-- User should be able to select one OR MORE dog breeds
         -->
-        <input type="text" id="breed-search" placeholder="Search for a breed">
-        <div id="breed-checkboxes"></div>
+        <input type="text" id="breed-search" class="breed-search" placeholder="Search for a breed">
+        <div id="breed-checkboxes" class="breed-checkboxes">
+            <!-- Dog breed checkboxes get added here through JS-->
+        </div>
     </div>
     <div id="viewer">
         <!-- Images get added here through JS-->
     </div>
-    <script src="static/js/app.js"></script>
+    <script>
+        "use strict";
+
+let breedUrls = {}; // Stores the URLs of the images of the selected breeds
+
+/**
+ * @description Fetches a list of dog breeds from the Dog API and creates a checkbox for each breed.
+ */
+async function getDogBreeds() {
+    const response = await fetch('https://dog.ceo/api/breeds/list/all');
+    const data = await response.json();
+    const breedCheckboxes = document.getElementById('breed-checkboxes');
+
+    for (const breed in data.message) {
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.name = 'breed';
+        checkbox.value = breed;
+        checkbox.className = 'breed-checkbox';
+        checkbox.id = `breed-${breed}`;
+        checkbox.addEventListener('change', getDogImage);
+
+        const label = document.createElement('label');
+        label.htmlFor = `breed-${breed}`;
+        label.textContent = breed;
+
+        breedCheckboxes.appendChild(checkbox);
+        breedCheckboxes.appendChild(label);
+    }
+}
+
+/**
+ * @description Fetches a random image of the selected breed from the Dog API and displays it in the viewer. Updates the view everytime a breed is selected or unselected.
+ * 
+ * @param {Event} event - The event object, in this case is triggered when a checkbox is checked or unchecked.
+ */
+async function getDogImage(event) {
+    const breed = event.target.value;
+    const viewer = document.getElementById('viewer');
+
+    if (event.target.checked) {
+        let url = `https://dog.ceo/api/breed/${breed}/images/random`;
+        let response = await fetch(url);
+
+        if (response.status === 404) {
+            // If the URL returns a 404, try fetching another image to make the customer happy
+            response = await fetch(url);
+        }
+
+        const data = await response.json();
+
+        const img = document.createElement('img');
+        img.src = data.message;
+        img.id = `img-${breed}`;
+        breedUrls[breed] = img;
+        viewer.appendChild(img);
+    } else {
+        viewer.removeChild(breedUrls[breed]);
+        delete breedUrls[breed];
+    }
+}
+
+/**
+ * @description Filters the displayed dog breed checkboxes based on the user's search query.
+ */
+function filterBreeds() {
+    const query = document.getElementById('breed-search').value.toLowerCase();
+    const labels = document.querySelectorAll('#breed-checkboxes label');
+
+    labels.forEach(label => {
+        const text = label.textContent.toLowerCase();
+        const checkbox = document.getElementById(`breed-${text}`);
+
+        if (text.includes(query)) {
+            label.style.display = 'inline';
+            checkbox.style.display = 'inline';
+        } else {
+            label.style.display = 'none';
+            checkbox.style.display = 'none';
+        }
+    });
+}
+
+// Fetch the initial list of dog breeds on javascript load in browser
+getDogBreeds();
+
+// Add event listener to the search input for filtering breeds
+document.getElementById('breed-search').addEventListener('input', filterBreeds);
+    </script>
+    <!-- <script src="static/js/app.js"></script> -->
 </body>
 </html>
