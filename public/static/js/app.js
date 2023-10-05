@@ -42,17 +42,29 @@ async function getDogImage(event) {
         let response = await fetch(url);
 
         if (response.status === 404) {
-            // If the URL returns a 404, try fetching another image to make the customer happy
             response = await fetch(url);
         }
 
         const data = await response.json();
 
+        const container = document.createElement('div');
+        container.className = 'dog-container';
+        container.id = `container-${breed}`;
+
         const img = document.createElement('img');
         img.src = data.message;
-        img.id = `img-${breed}`;
-        breedUrls[breed] = img;
-        viewer.appendChild(img);
+        img.className = 'dog-image';
+
+        const title = document.createElement('span');
+        title.className = 'dog-title';
+        title.textContent = breed;
+
+        container.appendChild(img);
+        container.appendChild(title);
+
+        breedUrls[breed] = container;
+
+        viewer.appendChild(container);
     } else {
         viewer.removeChild(breedUrls[breed]);
         delete breedUrls[breed];
