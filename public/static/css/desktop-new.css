@@ -1,9 +1,11 @@
+/* This CSS file is written top-down in relation to the HTML file */
 /* Imports */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
 
 :root {
     --lightwhite: #F4FFFD;
     --fetchpurple: #732385;
+    --fetchyellow: #FBA919;
     --lightblue: #E9F1F7;
     --black: #100007;
     --selected: #026C7C;
@@ -25,14 +27,16 @@ body {
 }
 
 .options {
+    width: 35%;
     flex-grow: 1;
-    width: 40%;
     min-height: 100vh;
     top: 0;
     bottom: 0;
+    left: 0;
     background-color: var(--fetchpurple);
     text-align: center;
     color: var(--lightwhite);
+    position: fixed;
 }
 
 .breed-search {
@@ -49,15 +53,20 @@ body {
     font-size: 1.2em;
 }
 
+.breed-search-info {
+    color: yellow;
+}
+
 .breed-checkboxes {
     width: 90%;
+    margin: auto;
     text-align: center;
     border-radius: 12px;
-    /* padding: 5%; */
+    padding: 5%;
     color: black;
     display: flex;
     flex-wrap: wrap;
-    align-content: space-;
+    justify-content: space-around;
 }
 
 .breed-checkbox{
@@ -76,19 +85,37 @@ label {
 }
 
 .breed-checkbox + label {
-    background-color: #ccc;
-    border: 1px solid #ccc;
+    background-color: #fff;
+    border: none;
     border-radius: 12px;
-    padding: 0.8%;
+    padding: 0.9%;
     margin: 1%;
 }
 
 .breed-checkbox:checked + label{
-    background-color: var(--selected);
+    background-color: var(--fetchyellow);
     border: none;
 }
 
 .viewer {
-    width: 60%;
+    width: 65%;
     min-height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.viewer .head-title {
+    color: var(--fetchpurple);
+    text-align: center;
+}
+
+hr {
+    width: 80%;
+}
+
+.viewer img {
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
 }

@@ -38,7 +38,7 @@ async function getDogImage(event) {
     const viewer = document.getElementById('viewer');
 
     if (event.target.checked) {
-        let url = `https://dog.ceo/api/breed/${breed}/images/random`;
+        let url = `https://dog.ceo/api/breed/${breed}/images/random/2`;
         let response = await fetch(url);
 
         if (response.status === 404) {
