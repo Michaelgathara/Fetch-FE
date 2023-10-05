@@ -1,5 +1,8 @@
 # Michael Gathara's Fetch Rewards FrontEnd Take Home
-
+This project is a simple web-based application that allows users to view various dog breeds. Browse through a gallery of adorable dogs and narrow down your options with a handy search feature. No need for any third-party libraries; this project is lightweight and runs directly in your browser.
+# Requirements
+* Modern web browser (Chrome, Firefox, Safari)
+* Operating system: Any
 ## How to locally run
 * Navigate to releases on the right of Github
 * Click releases and find the latest release
